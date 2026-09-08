@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, Star } from 'lucide-react';
 import { trialLink } from '@/lib/navigation';
 
@@ -176,13 +175,13 @@ export default function LearningJourney() {
 
         {/* CTA */}
         <div className="mt-16 flex justify-center">
-          <Link to={trialLink} className="btn-accent group">
+          <a href={trialLink} target="_blank" rel="noopener noreferrer" className="btn-accent group">
             Bắt đầu hành trình của con
             <ArrowRight
               className="h-5 w-5 transition-transform duration-300 ease-smooth group-hover:translate-x-1"
               strokeWidth={2.25}
             />
-          </Link>
+          </a>
         </div>
       </div>
 

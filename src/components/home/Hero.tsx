@@ -66,13 +66,13 @@ export default function Hero() {
 
           {/* CTA */}
           <div className="mt-5 flex items-center gap-4">
-            <Link to={trialLink} className="btn-accent group">
+            <a href={trialLink} target="_blank" rel="noopener noreferrer" className="btn-accent group">
               Đăng ký học thử
               <ArrowRight
                 className="h-5 w-5 transition-transform duration-300 ease-smooth group-hover:translate-x-1"
                 strokeWidth={2.25}
               />
-            </Link>
+            </a>
             <Link
               to="/chuong-trinh-hoc"
               className="font-body text-sm font-semibold text-ink-700 underline-offset-4 transition-colors hover:text-ink-900 hover:underline"
@@ -192,13 +192,13 @@ export default function Hero() {
             </p>
 
             <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-              <Link to={trialLink} className="btn-accent group">
+              <a href={trialLink} target="_blank" rel="noopener noreferrer" className="btn-accent group">
                 Đăng ký học thử
                 <ArrowRight
                   className="h-5 w-5 transition-transform duration-300 ease-smooth group-hover:translate-x-1"
                   strokeWidth={2.25}
                 />
-              </Link>
+              </a>
               <Link
                 to="/chuong-trinh-hoc"
                 className="font-body text-base font-semibold text-ink-700 underline-offset-4 transition-colors hover:text-ink-900 hover:underline"

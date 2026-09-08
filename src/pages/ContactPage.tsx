@@ -14,7 +14,7 @@ export default function ContactPage() {
         fullBleed={true}
       />
       <ContactDetails />
-      <FinalCTA ctaText="LIÊN HỆ NGAY" ctaHref="tel:0123456789" />
+      <FinalCTA ctaText="LIÊN HỆ NGAY" />
     </>
   );
 }

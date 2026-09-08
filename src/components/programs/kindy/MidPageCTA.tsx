@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { trialLink } from '@/lib/navigation';
 
@@ -29,8 +28,7 @@ export default function MidPageCTA() {
           </div>
 
           {/* Right: button */}
-          <Link
-            to={trialLink}
+          <a href={trialLink} target="_blank" rel="noopener noreferrer"
             className="group inline-flex items-center justify-center gap-2 rounded-[20px] bg-blush-300 px-6 py-3.5 font-body text-base font-bold text-ink-900 shadow-soft transition-all duration-300 ease-smooth hover:bg-blush-400 hover:shadow-card"
           >
             ĐĂNG KÝ HỌC THỬ
@@ -38,7 +36,7 @@ export default function MidPageCTA() {
               className="h-5 w-5 transition-transform duration-300 ease-smooth group-hover:translate-x-1"
               strokeWidth={2.25}
             />
-          </Link>
+          </a>
         </div>
       </div>
 
