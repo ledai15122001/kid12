@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { trialLink } from '@/lib/navigation';
 
 interface Program {
   age: string;
+  to: string;
   title: string;
   tagline: string;
   body: string;
@@ -17,6 +19,7 @@ interface Program {
 const programs: Program[] = [
   {
     age: '3-5',
+    to: '/chuong-trinh-hoc/tieng-anh-mam-non-3-5-tuoi',
     title: 'Tiếng Anh Mầm non',
     tagline: 'Học qua vui chơi - khơi dậy niềm yêu thích tiếng Anh từ sớm.',
     body: 'Bé làm quen với tiếng Anh qua kể chuyện, vận động, âm nhạc và trò chơi, phát triển khả năng nghe - nói tự nhiên và xây dựng phản xạ ngôn ngữ đầu tiên trong một môi trường an toàn, đầy cảm hứng.',
@@ -31,6 +34,7 @@ const programs: Program[] = [
   },
   {
     age: '6-10',
+    to: '/chuong-trinh-hoc/tieng-anh-tieu-hoc-6-10-tuoi',
     title: 'Tiếng Anh Thiếu nhi',
     tagline: 'Giao tiếp vui vẻ - xây nền tảng ngôn ngữ vững chắc.',
     body: 'Bé mở rộng vốn từ vựng, nắm cấu trúc ngữ pháp và rèn giao tiếp thực tế qua các hoạt động tương tác. Cả 4 kỹ năng nghe - nói - đọc - viết được phát triển song song, đồng bộ với chương trình học ở trường.',
@@ -45,6 +49,7 @@ const programs: Program[] = [
   },
   {
     age: '11-15',
+    to: '/chuong-trinh-hoc/tieng-anh-thieu-nien-11-15-tuoi',
     title: 'Tiếng Anh Thiếu niên',
     tagline: 'Tăng tốc tiếng Anh - chuẩn bị hành trang cho những bước nhảy vọt.',
     body: 'Học sinh nâng cao năng lực ngôn ngữ học thuật và tư duy phản biện qua luyện viết luận, đọc hiểu chuyên sâu và thuyết trình, sẵn sàng cho các kỳ thi và môi trường học tập quốc tế.',
@@ -112,16 +117,18 @@ export default function Programs() {
         </div>
 
         <div className="mt-14 flex justify-center">
-          <Link
-            to="/chuong-trinh-hoc"
-            className="group inline-flex items-center gap-2 font-body text-base font-bold text-ink-800 underline decoration-blush-400 decoration-2 underline-offset-4 transition-colors duration-200 hover:text-sky-700"
+          <a
+            href={trialLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-accent group"
           >
-            Khám phá tất cả chương trình học
+            Đăng ký học thử
             <ArrowRight
               className="h-5 w-5 transition-transform duration-300 ease-smooth group-hover:translate-x-1"
               strokeWidth={2.25}
             />
-          </Link>
+          </a>
         </div>
       </div>
 
@@ -188,7 +195,7 @@ function ProgramPanel({ program, index }: { program: Program; index: number }) {
           {program.body}
         </p>
         <Link
-          to="/chuong-trinh-hoc"
+          to={program.to}
           className="group/link mt-5 inline-flex items-center gap-2 font-body text-sm font-bold text-ink-900 transition-colors hover:text-sky-700"
         >
           Xem thêm
