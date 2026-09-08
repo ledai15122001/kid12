@@ -52,9 +52,9 @@ export default function Header() {
           </nav>
 
           <div className="hidden lg:block">
-            <Link to={trialLink} className="btn-accent">
+            <a href={trialLink} target="_blank" rel="noopener noreferrer" className="btn-accent">
               Đăng ký học thử
-            </Link>
+            </a>
           </div>
 
           <button
@@ -80,9 +80,9 @@ export default function Header() {
                 toggleExpand={setExpandedMobile}
               />
             ))}
-            <Link to={trialLink} className="btn-accent mt-2 w-full">
+            <a href={trialLink} target="_blank" rel="noopener noreferrer" className="btn-accent mt-2 w-full">
               Đăng ký học thử
-            </Link>
+            </a>
           </div>
         </div>
       )}
@@ -115,19 +115,34 @@ function DesktopNavLink({ item }: { item: NavItem }) {
 
   return (
     <div className="group relative">
-      <Link
-        to={item.to}
-        className={[
-          'inline-flex items-center gap-1 rounded-xl px-4 py-2 font-body text-sm font-semibold tracking-wide transition-colors duration-200',
-          isActive ? 'text-ink-900' : 'text-ink-600 group-hover:text-ink-900',
-        ].join(' ')}
-      >
-        {item.label}
-        <ChevronDown
-          className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180"
-          strokeWidth={2.5}
-        />
-      </Link>
+      {item.disableParentLink ? (
+        <span
+          className={[
+            'inline-flex cursor-default items-center gap-1 rounded-xl px-4 py-2 font-body text-sm font-semibold tracking-wide transition-colors duration-200',
+            'text-ink-600 group-hover:text-ink-900',
+          ].join(' ')}
+        >
+          {item.label}
+          <ChevronDown
+            className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180"
+            strokeWidth={2.5}
+          />
+        </span>
+      ) : (
+        <Link
+          to={item.to}
+          className={[
+            'inline-flex items-center gap-1 rounded-xl px-4 py-2 font-body text-sm font-semibold tracking-wide transition-colors duration-200',
+            isActive ? 'text-ink-900' : 'text-ink-600 group-hover:text-ink-900',
+          ].join(' ')}
+        >
+          {item.label}
+          <ChevronDown
+            className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180"
+            strokeWidth={2.5}
+          />
+        </Link>
+      )}
 
       <div className="invisible absolute left-0 top-full z-50 pt-2 opacity-0 transition-all duration-200 ease-smooth group-hover:visible group-hover:opacity-100">
         <div className="min-w-[260px] overflow-hidden rounded-2xl bg-white p-2 shadow-card ring-1 ring-ink-900/5">
@@ -187,12 +202,14 @@ function MobileNavItem({
       </button>
       {isExpanded && (
         <div className="flex flex-col gap-0.5 pl-6 pt-1">
-          <Link
-            to={item.to}
-            className="rounded-lg px-4 py-2.5 font-body text-sm font-semibold text-ink-700 transition-colors hover:bg-cream-200"
-          >
-            Tất cả {item.label.toLowerCase()}
-          </Link>
+          {!item.disableParentLink && (
+            <Link
+              to={item.to}
+              className="rounded-lg px-4 py-2.5 font-body text-sm font-semibold text-ink-700 transition-colors hover:bg-cream-200"
+            >
+              Tất cả {item.label.toLowerCase()}
+            </Link>
+          )}
           {item.children!.map((child) => (
             <Link
               key={child.to}

@@ -7,6 +7,7 @@ export interface NavItem {
   label: string;
   to: string;
   children?: NavChild[];
+  disableParentLink?: boolean;
 }
 
 export const navItems: NavItem[] = [
@@ -21,6 +22,7 @@ export const navItems: NavItem[] = [
   {
     label: 'CHƯƠNG TRÌNH HỌC',
     to: '/chuong-trinh-hoc',
+    disableParentLink: true,
     children: [
       { label: 'Tiếng Anh Mầm non (3-5 tuổi)', to: '/chuong-trinh-hoc/tieng-anh-mam-non-3-5-tuoi' },
       { label: 'Tiếng Anh Thiếu nhi (6-10 tuổi)', to: '/chuong-trinh-hoc/tieng-anh-tieu-hoc-6-10-tuoi' },
@@ -33,4 +35,4 @@ export const navItems: NavItem[] = [
   { label: 'LIÊN HỆ', to: '/lien-he' },
 ];
 
-export const trialLink = '/dang-ky-hoc-thu';
+export const trialLink = 'https://zalo.me/0398519485';

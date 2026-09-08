@@ -67,9 +67,9 @@ export default function Footer() {
             <p className="mt-4 font-body text-sm text-ink-600">
               Đăng ký học thử miễn phí cho bé yêu của bạn.
             </p>
-            <Link to={trialLink} className="btn-accent mt-4 w-full md:w-auto">
+            <a href={trialLink} target="_blank" rel="noopener noreferrer" className="btn-accent mt-4 w-full md:w-auto">
               Đăng ký học thử
-            </Link>
+            </a>
           </div>
         </div>
 
